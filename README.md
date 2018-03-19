@@ -1,3 +1,5 @@
+# Simple educational example on how to host simple Vue.js SPA (Single Page Application) via Spring Boot
+
 [![Build Status](https://travis-ci.org/alex323glo/RESTful-with-vuejs-tutorial.svg?branch=master)](https://travis-ci.org/alex323glo/RESTful-with-vuejs-tutorial)
 
 ## Guide
