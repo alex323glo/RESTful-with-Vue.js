@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/alex323glo/RESTful-with-vuejs-tutorial.svg?branch=master)](https://travis-ci.org/alex323glo/RESTful-with-vuejs-tutorial)
 
-##Guide
+## Guide
 
-####To run Application you must:
+#### To run Application you must:
 
 1. be sure, that you have pre-installed JVM (Java version 8, or later);
 2. be sure, that at this moment no other applications use port:8080 (for example, Tomcat uses port:8080 by default);
