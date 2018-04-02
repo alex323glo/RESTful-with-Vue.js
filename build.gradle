@@ -1,25 +1,9 @@
 group 'com.alex323glo.tutorials'
+version '1.0'
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '1.5.10.RELEASE'
-    }
+repositories {
+    mavenCentral()
 }
-
-apply plugin: 'java'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-
-jar {
-    baseName = 'RESTful-with-vuejs-tutorial'
-    version = '1.0'
-}
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 task wrapper(type: Wrapper) {
     gradleVersion = '4.5.1'
@@ -27,21 +11,6 @@ task wrapper(type: Wrapper) {
 
 sourceSets {
     main {
-        output.resourcesDir = "build/classes/main"
+        output.resourcesDir = "RESTful-Web-Service/build/classes/main"
     }
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit'
-
-    compile group: 'com.h2database', name: 'h2'
-
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
-
-    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
 }

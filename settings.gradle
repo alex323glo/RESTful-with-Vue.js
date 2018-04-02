@@ -1,2 +1,3 @@
 rootProject.name = 'RESTful-with-vuejs-tutorial'
+include 'RESTful-Web-Service'
 
