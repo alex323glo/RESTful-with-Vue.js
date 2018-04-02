@@ -21,7 +21,15 @@ jar {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.5.1'
+}
 
+sourceSets {
+    main {
+        output.resourcesDir = "build/classes/main"
+    }
+}
 
 repositories {
     mavenCentral()

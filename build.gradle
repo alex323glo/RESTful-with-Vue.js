@@ -1,16 +1,2 @@
 group 'com.alex323glo.tutorials'
 version '1.0'
-
-repositories {
-    mavenCentral()
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.5.1'
-}
-
-sourceSets {
-    main {
-        output.resourcesDir = "RESTful-Web-Service/build/classes/main"
-    }
-}
