@@ -64,7 +64,7 @@ export default {
 
   methods: {
     logoutClicked() {
-      this.$http.get('/logout').then(
+      /*this.$http.get('/logout').then(
         (goodResponse) => {
           Console.log(' * Log out was successful.');
           ContentService.email = '';
@@ -73,7 +73,12 @@ export default {
         (badResponse) => {
           console.log(' * ERROR. Cant log out.');
         }
-      );
+      );*/
+
+      // TODO remove later:
+      Console.log(' * Log out was successful.');
+      ContentService.email = '';
+      this.$router.push({name: 'home'});
     }
   }
 }

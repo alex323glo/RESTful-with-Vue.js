@@ -6,6 +6,7 @@ import com.alex323glo.restvue.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -32,29 +33,23 @@ public class MainController {
         this.userService = userService;
     }
 
-    @PostMapping("/register")
-    public User register(
-            @RequestParam(value = "email") String email,
-            @RequestParam(value = "password") String password
-    ) throws AppException {
+    @PostMapping("/registration")
+    public User register(@RequestBody User user) throws AppException {
 
-        LOG.info("serving \"/register\" endpoint...");
+        LOG.info("serving \"/registration\" endpoint...");
 
-        User registeredUser = userService.register(email, password);
+        User registeredUser = userService.register(user.getEmail(), user.getPassword());
 
-        LOG.info("successfully served \"/register\" endpoint");
+        LOG.info("successfully served \"/registration\" endpoint");
         return registeredUser;
     }
 
     @PostMapping("/login")
-    public User login(
-            @RequestParam(value = "email") String email,
-            @RequestParam(value = "password") String password
-    ) throws AppException {
+    public User login(@RequestBody User user) throws AppException {
 
         LOG.info("serving \"/login\" endpoint...");
 
-        User authorizedUser = userService.login(email, password);
+        User authorizedUser = userService.login(user.getEmail(), user.getPassword());
 
         LOG.info("successfully served \"/login\" endpoint");
         return authorizedUser;

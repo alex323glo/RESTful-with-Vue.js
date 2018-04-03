@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.util.LinkedMultiValueMap;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,9 +28,9 @@ public class MainControllerTest {
         String parsedTestUserJSON = new JacksonJsonProvider().toJson(testUser);
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .post("/register")
-                        .param("email", testUser.getEmail())
-                        .param("password", testUser.getPassword()))
+                        .post("/registration")
+                        .contentType("application/json;charset=UTF-8")
+                        .content(new JacksonJsonProvider().toJson(testUser)))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
@@ -38,14 +39,14 @@ public class MainControllerTest {
         User testUser = new User("login@gmail.com", "12345678");
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .post("/register")
-                        .param("email", testUser.getEmail())
-                        .param("password", testUser.getPassword()));
+                        .post("/registration")
+                        .contentType("application/json;charset=UTF-8")
+                        .content(new JacksonJsonProvider().toJson(testUser)));
 
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/login")
-                        .param("email", testUser.getEmail())
-                        .param("password", testUser.getPassword()))
+                    .contentType("application/json;charset=UTF-8")
+                    .content(new JacksonJsonProvider().toJson(testUser)))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 

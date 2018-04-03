@@ -26,53 +26,53 @@ export default new Vue ({
 
         sendLoginAJAX(that) {
             that.$http.post('/login', {email: that.email, password: that.password}).then(
-                (goodResponse, self = that) => {
+                (goodResponse, target = that, self = this) => {
                     console.log(' * Login was successful! Response:\n' + goodResponse);
-                    showSuccessPanel(self);
-                    
-                    ContentService.postEmail(self.email);
+                    self.showSuccessPanel(target);
+
+                    ContentService.postEmail(target.email);
 
                     if (confirm('Go to main page now?') === true) {
-                        self.$router.push({name: 'personal'});
+                        target.$router.push({name: 'personal'});
                     }
                 },
-                (badResponse, self = that) => {
+                (badResponse, target = that, self = this) => {
                     console.log(' * ERROR! Login was not successful! Response:\n' + badResponse);
-                    showFailPanel(self);
+                    self.showFailPanel(target);
                 }
             );
         },
 
         sendRegistrationAJAX(that) {
             that.$http.post('/registration', {email: that.email, password: that.password}).then(
-                (goodResponse, self = this) => {
+                (goodResponse, target = that, self = this) => {
                     console.log(' * Registration was successful! Response:\n' + goodResponse);
-                    AuthService.showSuccessPanel(self);
+                    self.showSuccessPanel(target);
 
-                    ContentService.postEmail(self.email);
+                    ContentService.postEmail(target.email);
 
                     if (confirm('Go to main page now?') === true) {
-                        self.$router.push({name: 'personal'});
+                        target.$router.push({name: 'personal'});
                     }
                 },
-                (badResponse, self = that) => {
+                (badResponse, target = that, self = this) => {
                     console.log(' * ERROR! Registration was not successful! Response:\n' + badResponse);
-                    AuthService.showFailPanel(self);
+                    self.showFailPanel(target);
                 }
             );
         },
 
-        showSuccessPanel(self) {
-            self.displayFailPanel = 'display: none';
-            self.displaySuccessPanel = 'display: block';
+        showSuccessPanel(target) {
+            target.displayFailPanel = 'display: none';
+            target.displaySuccessPanel = 'display: block';
         },
-        showFailPanel(self) {
-            self.displaySuccessPanel = 'display: none';
-            self.displayFailPanel = 'display: block';
+        showFailPanel(target) {
+            target.displaySuccessPanel = 'display: none';
+            target.displayFailPanel = 'display: block';
         },
-        hideAllPanels(self) {
-            self.displaySuccessPanel = 'display: none';
-            self.displayFailPanel = 'display: none';
+        hideAllPanels(target) {
+            target.displaySuccessPanel = 'display: none';
+            target.displayFailPanel = 'display: none';
         }
     }
 });
