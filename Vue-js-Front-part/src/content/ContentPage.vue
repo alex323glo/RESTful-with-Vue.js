@@ -41,18 +41,24 @@ export default {
     'custom-footer': Footer
   },
 
+  data() {
+    return {
+      postedEmail: ContentService.contentPageEmail
+    };
+  },
+
   computed: {
     postedEmail() {
-      return ContentService.email;
+      return ContentService.email + "dfsd";
     }
   },
 
   computed: {
     displayAuthorizedPanel() {
-      return 'display: ' + (this.$route.name === 'content' ? 'block;'  : 'none;');
+      return 'display: ' + (this.$route.name === 'personal' ? 'block;'  : 'none;');
     },
     displayNonAuthorizedPanel() {
-      return 'display: ' + (this.$route.name === 'content' ? 'none;' : 'block;');
+      return 'display: ' + (this.$route.name === 'personal' ? 'none;' : 'block;');
     }
   },
 

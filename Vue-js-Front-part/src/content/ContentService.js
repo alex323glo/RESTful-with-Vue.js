@@ -2,6 +2,11 @@ import Vue from 'vue';
 
 export default new Vue({
     data: {
-        email: ''
+        contentPageEmail: ''
+    },
+    methods: {
+        postEmail(email) {
+            this.contentPageEmail = email;
+        }
     }
 });

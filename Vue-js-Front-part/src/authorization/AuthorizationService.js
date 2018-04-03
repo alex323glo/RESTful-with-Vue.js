@@ -30,10 +30,10 @@ export default new Vue ({
                     console.log(' * Login was successful! Response:\n' + goodResponse);
                     showSuccessPanel(self);
                     
-                    postEmailToContentPage(self.email);
+                    ContentService.postEmail(self.email);
 
                     if (confirm('Go to main page now?') === true) {
-                        self.$router.push({name: 'home'});
+                        self.$router.push({name: 'personal'});
                     }
                 },
                 (badResponse, self = that) => {
@@ -49,10 +49,10 @@ export default new Vue ({
                     console.log(' * Registration was successful! Response:\n' + goodResponse);
                     AuthService.showSuccessPanel(self);
 
-                    AuthService.postEmailToContentPage(self.email);
+                    ContentService.postEmail(self.email);
 
                     if (confirm('Go to main page now?') === true) {
-                        self.$router.push({name: 'home'});
+                        self.$router.push({name: 'personal'});
                     }
                 },
                 (badResponse, self = that) => {
@@ -60,10 +60,6 @@ export default new Vue ({
                     AuthService.showFailPanel(self);
                 }
             );
-        },
-
-        postEmailToContentPage(email) {
-            ContentService.email = email;
         },
 
         showSuccessPanel(self) {

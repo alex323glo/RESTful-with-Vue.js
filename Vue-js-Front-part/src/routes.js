@@ -17,9 +17,9 @@ export const routes = [
                 name: 'empty-content'
             },
             {
-                path: '/content',
+                path: '/personal',
                 component: Content,
-                name: 'content'
+                name: 'personal'
             }
         ]
     },

@@ -32,26 +32,13 @@
 export default {
     data() {
       return {
-        users: [
-          {id: 1, email: 'alex@gmail.com', password: '123456'},
-          {id: 1, email: 'alex@gmail.com', password: '123456'},
-          {id: 1, email: 'alex@gmail.com', password: '123456'},
-          {id: 1, email: 'alex@gmail.com', password: '123456'},
-          {id: 1, email: 'alex@gmail.com', password: '123456'},
-          {id: 1, email: 'alex@gmail.com', password: '123456'},
-          {id: 1, email: 'alex@gmail.com', password: '123456'},
-          {id: 1, email: 'alex@gmail.com', password: '123456'},
-          {id: 1, email: 'alex@gmail.com', password: '123456'},
-          {id: 1, email: 'alex@gmail.com', password: '123456'},
-          {id: 1, email: 'alex@gmail.com', password: '123456'},
-          {id: 1, email: 'alex@gmail.com', password: '123456'},
-        ]
+        users: []
       };
     },
 
     methods: {
       refreshUsersClicked() {
-        
+
       }
     }
 }
